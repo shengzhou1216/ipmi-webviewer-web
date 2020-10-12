@@ -1,0 +1,44 @@
+@mixin attr-value($attr,$value) {
+    .#{$attr}-#{$value}{
+        #{$attr}:#{$value}
+    }
+}
+
+.flex {
+    display:flex;
+}
+
+.flex-center{
+    justify-content:center;
+    align-items:center;
+}
+
+// flex-direction
+@each $i in row,row-reverse,column,column-reverse {
+    @include attr-value('flex-direction',$i);
+    @include attr-value('fd',$i);
+}
+
+// flex-wrap
+@each $i in wrap,nowrap,wrap-reverse {
+    @include attr-value('flex-wrap',$i);
+    @include attr-value('fw',$i);
+}
+
+// justify-content
+@each $i in flex-start,flex-end,center,space-between,space-around {
+    @include attr-value('justify-content',$i);
+    @include attr-value('jc',$i);
+}
+
+// align-items
+@each $i in flex-start,flex-end,center,baseline,stretch {
+    @include attr-value('align-items',$i);
+    @include attr-value('ai',$i);
+}
+
+// align-content
+@each $i in flex-start,flex-end,center,space-between,space-around,stretch {
+    @include attr-value('align-content',$i);
+    @include attr-value('ac',$i);
+}

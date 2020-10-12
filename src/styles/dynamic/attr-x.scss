@@ -1,0 +1,26 @@
+@mixin attr-x($attr,$attr-count:100,$attr-steps:1,$unit:'px'){
+    @for $i from 0 through $attr-count {
+        $attr-value: $attr-steps * $i;
+
+        .#{$attr}#{$attr-value} {
+            #{$attr}: #{$attr-value}#{$unit}
+        }
+    }
+}
+// margin
+@include attr-x('margin');
+@include attr-x('margin-left');
+@include attr-x('margin-right');
+@include attr-x('margin-top');
+@include attr-x('margin-bottom');
+// padding
+@include attr-x('padding');
+@include attr-x('padding-left');
+@include attr-x('padding-right');
+@include attr-x('padding-top');
+@include attr-x('padding-bottom');
+// font
+@include attr-x('font-size');
+@include attr-x('font-weight',$attr-steps:10,$unit: '');
+// width
+@include attr-x('width',$attr-steps:10);
