@@ -10,6 +10,12 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
+Vue.filter('emptyFilter',(value)=>{
+  if(!value || value === ''){
+    return '无'
+  }
+  return value
+})
 new Vue({
   router,
   render: h => h(App),
