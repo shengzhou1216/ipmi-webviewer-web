@@ -185,6 +185,7 @@ export default {
             return true
         },
         handleViewInfo(){
+            if (!this.checkCredentials()) return
             let routeData = this.$router.resolve({path: `/${this.device.ip}/info`});
             window.open(routeData.href, '_blank');
         }
